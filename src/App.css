@@ -4,3 +4,14 @@
   align-items: center;
   margin: 0 auto;
 }
+
+.nav {
+  backdrop-filter: blur(40.7742px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    width: 1110px;
+  }
+}
