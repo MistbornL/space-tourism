@@ -10,8 +10,20 @@
   background: rgba(255, 255, 255, 0.04);
 }
 
+.nav li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-transform: uppercase;
+}
+
 @media (min-width: 768px) {
   .nav {
     width: 1110px;
   }
+}
+
+.selected {
+  border-bottom: 3px solid lightgray;
 }

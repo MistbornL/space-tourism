@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/shared/logo.svg";
 
 export const Navbar = () => {
+  const [selected, setSelected] = useState<string>("home");
+
+  const navbarItems: string[] = ["home", "destination", "crew", "technology"];
+
   return (
     <div className="flex items-center  justify-between ml-14  mt-10">
       <div>
         <img src={logo} alt="ah" />
       </div>
       <ul className="nav items-center pl-32 flex gap-20 h-24  backdrop-blur-sm text-gray-light">
-        <li>
-          <Link to={"/"}>Home</Link>
-        </li>
-        <li className="">
-          <Link to={"/destination"}>DESTINATION</Link>
-        </li>
-        <li className=" ">
-          <Link to={"/crew"}>CREW</Link>
-        </li>
-        <li className="">
-          <Link to={"/technology"}>TECHNOLOGY</Link>
-        </li>
+        {navbarItems.map((item) => {
+          return (
+            <li className={selected === item ? "selected " : "transition-all"}>
+              <Link
+                onClick={() => setSelected(item)}
+                to={`${item === "home" ? "/" : item}`}
+              >
+                {item}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
