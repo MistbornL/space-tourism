@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import { Description } from "../components/Description";
 import { Data } from "../data";
+import moon from "../assets/destination/image-moon.png";
+import mars from "../assets/destination/image-mars.png";
+import europa from "../assets/destination/image-europa.png";
+import titan from "../assets/destination/image-titan.png";
 
 export const Destination = () => {
   const [selected, setSelected] = useState("moon");
 
   const planets: string[] = ["moon", "mars", "europa", "titan"];
+  const [img, setImg] = useState("moon");
+  console.log(img);
 
   function planetChosen() {
-    switch (planets) {
-      case ["moon"]:
-        return <Description planet={Data.moon} />;
-      case ["mars"]:
-        return <Description planet={Data.mars} />;
-      case ["europa"]:
-        return <Description planet={Data.europa} />;
-      case ["titan"]:
-        return <Description planet={Data.titan} />;
+    switch (selected) {
+      case "moon":
+        return <Description planet={Data.moon} setImg={setImg} />;
+      case "mars":
+        return <Description planet={Data.mars} setImg={setImg} />;
+      case "europa":
+        return <Description planet={Data.europa} setImg={setImg} />;
+      case "titan":
+        return <Description planet={Data.titan} setImg={setImg} />;
       default:
-        return <Description planet={Data.moon} />;
+        return <Description planet={Data.moon} setImg={setImg} />;
     }
   }
 
@@ -31,7 +37,17 @@ export const Destination = () => {
         <img
           style={{ maxWidth: "445px", height: "445px" }}
           className=""
-          src=""
+          src={
+            img === "moon"
+              ? moon
+              : img === "mars"
+              ? mars
+              : img === "europa"
+              ? europa
+              : img === "titan"
+              ? titan
+              : undefined
+          }
           alt="moon"
         />
 
@@ -39,7 +55,11 @@ export const Destination = () => {
           <ul className="flex uppercase text-gray-light gap-8">
             {planets.map((planet, index) => {
               return (
-                <li onClick={() => setSelected(planet)} key={index}>
+                <li
+                  className={`${planet === selected ? "selected" : ""}`}
+                  onClick={() => setSelected(planet)}
+                  key={index}
+                >
                   {planet}
                 </li>
               );
