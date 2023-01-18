@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/shared/logo.svg";
 
 export const Navbar = () => {
-  const [selected, setSelected] = useState<string>("home");
-
+  const current = useLocation();
+  const [selected, setSelected] = useState<string>(
+    current.pathname === "/" ? "home" : current.pathname.slice(1)
+  );
   const navbarItems: string[] = ["home", "destination", "crew", "technology"];
-
   return (
     <div className="flex items-center  justify-between ml-14  mt-10">
       <div>
