@@ -23,9 +23,9 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
   console.log(slides[currentSlide].name);
 
   return (
-    <div className="mt-24">
-      <div className="text-gray-light flex justify-between transition-transform">
-        <div className="left-content">
+    <div className="mt-24 transition-transform duration-500">
+      <div className="text-gray-light flex justify-between ">
+        <div className="left-content transition-all ">
           <h1 className="uppercase text-6xl mt-20 mb-40 text-gray-light">
             meet your crew
           </h1>
@@ -50,22 +50,22 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
             ))}
           </div>
         </div>
-
-        <img
-          className=""
-          src={
-            slides[currentSlide].name === "Douglas Hurley"
-              ? douglas
-              : slides[currentSlide].name === "MARK SHUTTLEWORTH"
-              ? mark
-              : slides[currentSlide].name === "Victor Glover"
-              ? victor
-              : slides[currentSlide].name === "Anousheh Ansari"
-              ? anousheh
-              : douglas
-          }
-          alt={slides[currentSlide].title}
-        />
+        <div className="transition-all align-bottom md:h-230">
+          <img
+            src={
+              slides[currentSlide].name === "Douglas Hurley"
+                ? douglas
+                : slides[currentSlide].name === "MARK SHUTTLEWORTH"
+                ? mark
+                : slides[currentSlide].name === "Victor Glover"
+                ? victor
+                : slides[currentSlide].name === "Anousheh Ansari"
+                ? anousheh
+                : douglas
+            }
+            alt={slides[currentSlide].title}
+          />
+        </div>
       </div>
     </div>
   );
