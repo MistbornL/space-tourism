@@ -1,6 +1,7 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="App ">
       <main className="flex-col  text-gray-light mt-64">
@@ -15,7 +16,10 @@ export const Home = () => {
           experience!
         </h5>
         <div className="absolute rounded-full items-center grid  md:right-56 md:top-96 bg-gray-light w-72 h-72">
-          <h1 className="text-gray-dark text-5xl flex text-center justify-center">
+          <h1
+            onClick={() => navigate("./destination")}
+            className="text-gray-dark text-5xl flex text-center justify-center cursor-pointer"
+          >
             Explore
           </h1>
         </div>

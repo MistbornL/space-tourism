@@ -7,10 +7,10 @@ import europa from "../assets/destination/image-europa.png";
 import titan from "../assets/destination/image-titan.png";
 
 export const Destination = () => {
-  const [selected, setSelected] = useState("moon");
+  const [selected, setSelected] = useState<string>("moon");
 
   const planets: string[] = ["moon", "mars", "europa", "titan"];
-  const [img, setImg] = useState("moon");
+  const [img, setImg] = useState<string>("moon");
   function planetChosen() {
     switch (selected) {
       case "moon":
