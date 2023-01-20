@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Tech } from "../data";
 import launch from "../assets/technology/image-launch-vehicle-landscape.jpg";
 import capsule from "../assets/technology/image-space-capsule-landscape.jpg";
@@ -6,6 +6,10 @@ import spaceport from "../assets/technology/image-spaceport-portrait.jpg";
 
 export const Technology = () => {
   const [currentCircle, setCurrentCircle] = useState<number>(0);
+  useEffect(() => {
+    document.body.className = "technology";
+  }, []);
+
   return (
     <div className="App">
       <h1 className="uppercase text-4xl mt-20 text-gray-light">

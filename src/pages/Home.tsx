@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    document.body.className = "home";
+  }, []);
+
   return (
     <div className="App ">
       <main className="flex-col  text-gray-light mt-64">

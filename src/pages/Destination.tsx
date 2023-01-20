@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Description } from "../components/Description";
 import { Data } from "../data";
 import moon from "../assets/destination/image-moon.png";
@@ -8,9 +8,9 @@ import titan from "../assets/destination/image-titan.png";
 
 export const Destination = () => {
   const [selected, setSelected] = useState<string>("moon");
-
   const planets: string[] = ["moon", "mars", "europa", "titan"];
   const [img, setImg] = useState<string>("moon");
+
   function planetChosen() {
     switch (selected) {
       case "moon":
@@ -25,6 +25,9 @@ export const Destination = () => {
         return <Description planet={Data.moon} setImg={setImg} />;
     }
   }
+  useEffect(() => {
+    document.body.className = "destination";
+  }, []);
 
   return (
     <div className="App">
